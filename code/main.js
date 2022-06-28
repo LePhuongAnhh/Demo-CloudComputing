@@ -8,9 +8,15 @@ app.use(express.urlencoded({ extended: true }))
 
 
 var MongoClient = require('mongodb').MongoClient
-var url = 'mongodb://127.0.0.1:27017'
+var url = 'mongodb+srv://phuonganh:phuonganh244@cluster0.55amjub.mongodb.net/test'
 
-app.get('/', async (req, res)=>{
+
+
+
+
+
+//**********index****************/
+app.get('/index', async (req, res)=>{
     //1. kết nối đến server có địa chỉ trong url
     let server = await MongoClient.connect(url)
     //truy cập Database ATN
@@ -84,7 +90,7 @@ app.post('/edit/:_id', async (req, res) => {
     let server = await MongoClient.connect(url) 
     let dbo = server.db("ATNToys")
     await dbo.collection('product').updateOne({ '_id': good_id }, {$set:{'_id': good_id,'name': name, 'price': price, 'picture': picture, 'description': description}})
-    res.redirect('/')
+    res.redirect('/index')
 })
 
 //**************Delete**************/
@@ -99,7 +105,7 @@ app.get('/delete/:_id', async (req, res) => {
     //2. truy cập database ATNToys
     let dbo = server.db("ATNToys")
     await dbo.collection('product').deleteOne({'_id': id2})
-    res.redirect('/')
+    res.redirect('/index')
 })
 // app.get('/delete/:_id', async (req, res)=>{
 //     //transform your param into an ObjectId
