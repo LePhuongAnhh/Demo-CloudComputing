@@ -18,13 +18,12 @@
       <a class="navbar-brand" href="#">ATNToys</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
+      <li><a href="/index">Home</a></li>
       
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Product
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="/viewAll">Product Management</a></li>
            <li><a href="/insert">New product</a></li>
         </ul>
       </li>
@@ -42,7 +41,7 @@
       <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
     </ul>
   </div>
-</nav>
+    </nav>
 
     <div class="text-center">
         <h1>New product</h1>
@@ -53,10 +52,11 @@
     <div class="form-group">
         <label for="name">Name:</label>
         <input type="text" class="form-control" id="name" placeholder="Enter Name" name="txtName">
-        <div style="color:dodgerblue">{{nameError}} </div>
+        <div>{{nameError}} </div>
     </div>
         <label for="price">Price:</label>
-        <input type="text" class="form-control" id="price" placeholder="Enter Price" name="txtPrice">
+        <input type="number" class="form-control" id="price" placeholder="Enter Price" name="txtPrice">
+        <div>{{priceError}} </div>
     </div>
         <label for="picture">Picture URL:</label>
         <input type="text" class="form-control" id="picture" placeholder="Enter Picture URL" name="txtPicture">
