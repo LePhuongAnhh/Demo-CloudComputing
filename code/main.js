@@ -66,11 +66,11 @@ app.post('/newProduct', async (req, res)=>{
 //***************Update*************/
 app.get('/update/:_id', async (req, res) => {
     var id = req.params._id;
-    var good_id = new ObjectId(id);
+    var id2 = new ObjectId(id);
 
     let server = await MongoClient.connect(url) 
     let dbo = server.db("ATNToys")
-    let products = await dbo.collection('product').find({ '_id': good_id}).limit(1).toArray()
+    let products = await dbo.collection('product').find({ '_id': id2}).limit(1).toArray()
     res.render('update', {'products': products[0]})
 })
 
